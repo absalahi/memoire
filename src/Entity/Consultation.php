@@ -28,6 +28,9 @@ class Consultation
     #[ORM\Column(length: 255)]
     private ?string $patient = null;
 
+    #[ORM\Column]
+    private ?int $id_dossier = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Consultation
     public function setPatient(string $patient): static
     {
         $this->patient = $patient;
+
+        return $this;
+    }
+
+    public function getIdDossier(): ?int
+    {
+        return $this->id_dossier;
+    }
+
+    public function setIdDossier(int $id_dossier): static
+    {
+        $this->id_dossier = $id_dossier;
 
         return $this;
     }

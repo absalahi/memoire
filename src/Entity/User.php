@@ -27,6 +27,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $matricule = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $nom = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $prenom = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $date_naiss = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $lieu_naiss = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $sexe = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $pseudo = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -114,5 +135,89 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getMatricule(): ?string
+    {
+        return $this->matricule;
+    }
+
+    public function setMatricule(string $matricule): static
+    {
+        $this->matricule = $matricule;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): static
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getDateNaiss(): ?string
+    {
+        return $this->date_naiss;
+    }
+
+    public function setDateNaiss(string $date_naiss): static
+    {
+        $this->date_naiss = $date_naiss;
+
+        return $this;
+    }
+
+    public function getLieuNaiss(): ?string
+    {
+        return $this->lieu_naiss;
+    }
+
+    public function setLieuNaiss(string $lieu_naiss): static
+    {
+        $this->lieu_naiss = $lieu_naiss;
+
+        return $this;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(string $sexe): static
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): static
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
     }
 }

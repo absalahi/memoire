@@ -14,66 +14,21 @@ class Secretaire
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $prenom = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $date_naiss = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $email = null;
+    private ?string $id_secr = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getIdSecr(): ?string
     {
-        return $this->nom;
+        return $this->id_secr;
     }
 
-    public function setNom(string $nom): static
+    public function setIdSecr(string $id_secr): static
     {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): static
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getDateNaiss(): ?string
-    {
-        return $this->date_naiss;
-    }
-
-    public function setDateNaiss(string $date_naiss): static
-    {
-        $this->date_naiss = $date_naiss;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): static
-    {
-        $this->email = $email;
+        $this->id_secr = $id_secr;
 
         return $this;
     }

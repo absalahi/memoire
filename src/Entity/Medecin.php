@@ -14,66 +14,36 @@ class Medecin
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
+    private ?string $id_med = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $prenom = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $date_naiss = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $email = null;
+    private ?string $domaine = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getIdMed(): ?string
     {
-        return $this->nom;
+        return $this->id_med;
     }
 
-    public function setNom(string $nom): static
+    public function setIdMed(string $id_med): static
     {
-        $this->nom = $nom;
+        $this->id_med = $id_med;
 
         return $this;
     }
 
-    public function getPrenom(): ?string
+    public function getDomaine(): ?string
     {
-        return $this->prenom;
+        return $this->domaine;
     }
 
-    public function setPrenom(string $prenom): static
+    public function setDomaine(string $domaine): static
     {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getDateNaiss(): ?string
-    {
-        return $this->date_naiss;
-    }
-
-    public function setDateNaiss(string $date_naiss): static
-    {
-        $this->date_naiss = $date_naiss;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): static
-    {
-        $this->email = $email;
+        $this->domaine = $domaine;
 
         return $this;
     }
