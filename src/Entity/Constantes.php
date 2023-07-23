@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\ConstantesRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: ConstantesRepository::class)]
+class Constantes
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $poids = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $tension = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $température = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getPoids(): ?string
+    {
+        return $this->poids;
+    }
+
+    public function setPoids(string $poids): static
+    {
+        $this->poids = $poids;
+
+        return $this;
+    }
+
+    public function getTension(): ?string
+    {
+        return $this->tension;
+    }
+
+    public function setTension(string $tension): static
+    {
+        $this->tension = $tension;
+
+        return $this;
+    }
+
+    public function getTempérature(): ?string
+    {
+        return $this->température;
+    }
+
+    public function setTempérature(string $température): static
+    {
+        $this->température = $température;
+
+        return $this;
+    }
+}
