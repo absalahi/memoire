@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -36,8 +39,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $date_naiss = null;
 
     #[ORM\Column(length: 255)]
     private ?string $lieu_naiss = null;
@@ -47,6 +48,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $pseudo = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $date_nais = null;
 
     public function getId(): ?int
     {
@@ -173,18 +177,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getDateNaiss(): ?string
-    {
-        return $this->date_naiss;
-    }
-
-    public function setDateNaiss(string $date_naiss): static
-    {
-        $this->date_naiss = $date_naiss;
-
-        return $this;
-    }
-
     public function getLieuNaiss(): ?string
     {
         return $this->lieu_naiss;
@@ -217,6 +209,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPseudo(string $pseudo): static
     {
         $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    public function getDateNais(): ?\DateTimeInterface
+    {
+        return $this->date_nais;
+    }
+
+    public function setDateNais(?\DateTimeInterface $date_nais): static
+    {
+        $this->date_nais = $date_nais;
 
         return $this;
     }
