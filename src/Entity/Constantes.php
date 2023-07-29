@@ -20,7 +20,7 @@ class Constantes
     private ?string $tension = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $température = null;
+    private ?string $temperature = null;
 
     #[ORM\Column]
     private ?int $id_dossier = null;
@@ -54,14 +54,14 @@ class Constantes
         return $this;
     }
 
-    public function getTempérature(): ?string
+    public function getTemperature(): ?string
     {
-        return $this->température;
+        return $this->temperature;
     }
 
-    public function setTempérature(string $température): static
+    public function setTemperature(string $température): static
     {
-        $this->température = $température;
+        $this->temperature = $température;
 
         return $this;
     }
